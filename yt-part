@@ -36,6 +36,9 @@ while [ -n "$1" ]; do
         -n)  #Select file name
             name=$2
             shift;;
+        -name)  #Select file name
+            name=$2
+            shift;;
         -start) #select start
             start=$2
             shift;;
