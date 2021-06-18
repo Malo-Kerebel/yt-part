@@ -24,6 +24,13 @@ If you want to download the first 30 seconds of a youtube video, and have the ou
 
 `yt-part -length 30 -format mkv https://www.youtube.com/watch?v=dQw4w9WgXcQ`
 
+## Dependencies
+
+This programm uses youtube-dl and ffmpeg, both should be available in your respective distribution repositories :
+
+Debian (and derivatives) : `sudo apt install youtube-dl ffmpeg`
+Arch (and derivatives) : `sudo pacman -S youtube-dl ffmpeg`
+
 ## Installation
 
 You can install yt-part with the commands :
