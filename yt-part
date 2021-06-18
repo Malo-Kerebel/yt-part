@@ -1,0 +1,84 @@
+#! /bin/bash
+
+Help()
+{
+    echo "Downloads parts of a video"
+    echo "Last argument should be the video URL"
+    echo
+    echo "OPTIONS"
+    echo
+    echo "-h -help     Show this message"
+    echo "-s -start     Where should the download begin (default is 00:00). Format HH:mm:ss.ms (HH: and .ms are optional) or input the number of seconds.number of ms. "
+    echo "-l -length    How long the video should be. Format HH:mm:ss.ms (HH: and .ms are optional) or input the number of seconds.number of ms."
+    echo "-n -name      What the output file be named (default is current date)"
+    echo "-f -format    Which should the output file be (default is mp4)"
+    echo "-vcodec       Which vcodec should the output file be (default is libx264)"
+}
+
+for name in youtube-dl ffmpeg
+do
+  [[ $(which $name 2>/dev/null) ]] || { echo -en "\n$name needs to be installed. Use 'sudo apt-get install $name'"; }
+done
+
+name=$(date +%y-%m-%dT%H-%M-%S)
+start="00:00"
+vcodec="libx264"
+format="mp4"
+
+while [ -n "$1" ]; do
+   case "$1" in
+        -h) # display Help
+            Help
+            exit;;
+        -vcodec) #select vcodec
+            vcodec=$2
+            shift;;
+        -n)  #Select file name
+            name=$2
+            shift;;
+        -start) #select start
+            start=$2
+            shift;;
+        -s)
+            start=$2
+            shift;;
+        -length) # select video length
+            length=$2
+            shift;;
+        -l)
+            length=$2
+            shift;;
+        -format) #Select output format
+            format=$2
+            shift;;
+        -f)
+            format=$2
+            shift;;
+        -url)
+            url=$2
+            shift;;
+        \?) # Base case
+            echo "Invalid Option"
+
+   esac
+   shift
+   if [ $# = 1 ];
+   then
+        url=$1
+        shift
+    fi
+done
+
+if [ -z $length ];
+then
+    echo "You must input a video length"
+    exit
+fi
+
+if [ -z $url ];
+then
+    echo "You must input an URL"
+    exit
+fi
+
+ffmpeg $(youtube-dl -g "$url" | sed 's/^/-ss '$start' -i /') -t "$length" -c copy -vcodec $vcodec "$name"".""$format"
