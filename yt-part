@@ -20,7 +20,7 @@ do
   [[ $(which $name 2>/dev/null) ]] || { echo -en "\n$name needs to be installed. Use 'sudo apt-get install $name'"; }
 done
 
-name=$(date +%y-%m-%dT%H-%M-%S)
+name=$(date +%FT%H-%M-%S)
 start="00:00"
 vcodec="libx264"
 format="mp4"
