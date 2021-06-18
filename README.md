@@ -22,7 +22,20 @@ If you want to dowload the part of a youtube video between 00:42 and 1:00 and na
 
 If you want to download the first 30 seconds of a youtube video, and have the output file as a mkv you can use :  
 
-`yt-part -length 30 -format mkv https://www.youtube.com/watch?v=dQw4w9WgXcQ`  
+`yt-part -length 30 -format mkv https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+
+## Installation
+
+You can install yt-part with the commands :
+
+`sudo cp yt-part /bin/
+sudo chmod +x /bin/yt-part`
+
+## Uninstallation
+
+You can easily uninstall yt-part with the command :
+
+`sudo rm /bin/yt-part`
 
 ## Licence
 
