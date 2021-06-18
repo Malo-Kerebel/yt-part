@@ -28,7 +28,7 @@ If you want to download the first 30 seconds of a youtube video, and have the ou
 
 This programm uses youtube-dl and ffmpeg, both should be available in your respective distribution repositories :
 
-Debian (and derivatives) : `sudo apt install youtube-dl ffmpeg`
+Debian (and derivatives) : `sudo apt install youtube-dl ffmpeg`  
 Arch (and derivatives) : `sudo pacman -S youtube-dl ffmpeg`
 
 ## Installation
