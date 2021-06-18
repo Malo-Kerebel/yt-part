@@ -30,6 +30,9 @@ while [ -n "$1" ]; do
         -h) # display Help
             Help
             exit;;
+        -help) # display Help
+            Help
+            exit;;
         -vcodec) #select vcodec
             vcodec=$2
             shift;;
