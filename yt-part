@@ -15,6 +15,7 @@ Help()
     echo "-vcodec       Which vcodec should the output file be (default is libx264)"
 }
 
+# Verification of dependencies
 for name in youtube-dl ffmpeg
 do
   [[ $(which $name 2>/dev/null) ]] || { echo -en "\n$name needs to be installed. Use 'sudo apt-get install $name'"; }
@@ -27,39 +28,26 @@ format="mp4"
 
 while [ -n "$1" ]; do
    case "$1" in
-        -h) # display Help
+        -h|-help) # display Help
             Help
             exit;;
         -vcodec) #select vcodec
             vcodec=$2
             shift;;
-        -n)  #Select file name
+        -n|-name)  #Select file name
             name=$2
             shift;;
-        -start) #select start
+        -s|-start) #select start
             start=$2
             shift;;
-        -s)
-            start=$2
-            shift;;
-        -length) # select video length
+        -l|-length) # select video length
             length=$2
             shift;;
-        -l)
-            length=$2
-            shift;;
-        -format) #Select output format
+        -f|-format) #Select output format
             format=$2
-            shift;;
-        -f)
-            format=$2
-            shift;;
-        -url)
-            url=$2
             shift;;
         \?) # Base case
             echo "Invalid Option"
-
    esac
    shift
    if [ $# = 1 ];
