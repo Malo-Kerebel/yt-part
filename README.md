@@ -35,8 +35,7 @@ Arch (and derivatives) : `sudo pacman -S youtube-dl ffmpeg`
 
 You can install yt-part with the commands :
 
-`sudo cp yt-part /bin/
-sudo chmod +x /bin/yt-part`
+`sudo cp yt-part /bin/ && sudo chmod +x /bin/yt-part`
 
 ## Uninstallation
 
