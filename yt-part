@@ -31,12 +31,6 @@ while [ -n "$1" ]; do
         -h|-help) # display Help
             Help
             exit;;
-        -help) # display Help
-            Help
-            exit;;
-        -vcodec) #select vcodec
-            vcodec=$2
-            shift;;
         -n|-name)  #Select file name
             name=$2
             shift;;
@@ -49,8 +43,12 @@ while [ -n "$1" ]; do
         -f|-format) #Select output format
             format=$2
             shift;;
+        -vcodec) #select vcodec
+            vcodec=$2
+            shift;;
         \?) # Base case
             echo "Invalid Option"
+            exit;;
    esac
    shift
    if [ $# = 1 ];
