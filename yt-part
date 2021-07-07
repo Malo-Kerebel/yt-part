@@ -23,7 +23,7 @@ done
 
 name=$(date +%FT%H-%M-%S)
 start="00:00"
-vcodec="libx264"
+vcodec="libx265"
 format="mp4"
 
 while [ -n "$1" ]; do
