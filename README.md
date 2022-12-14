@@ -12,7 +12,7 @@ Short command line utility to download part of a video available online (might n
                   or input the number of seconds.number of ms.   
     -n -name      What the output file be named (default is current date)   
     -f -format    Which should the output file be (default is mp4)  
-    -vcodec       Which vcodec should the output file be (default is libx264)
+    -vcodec       Which vcodec should the output file be (default is libx265)
 
 ## Exemple
 
