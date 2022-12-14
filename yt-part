@@ -70,4 +70,4 @@ then
     exit
 fi
 
-ffmpeg $(youtube-dl -g "$url" | sed 's/^/-ss '$start' -i /') -t "$length" -c copy -vcodec $vcodec "$name"".""$format"
+ffmpeg $(yt-dlp -g "$url" | sed 's/^/-ss '$start' -i /') -t "$length" -c copy -vcodec $vcodec "$name"".""$format"
