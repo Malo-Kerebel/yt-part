@@ -16,7 +16,7 @@ Help()
 }
 
 # Verification of dependencies
-for name in youtube-dl ffmpeg
+for name in yt-dlp ffmpeg
 do
   [[ $(which $name 2>/dev/null) ]] || { echo -en "\n$name needs to be installed. Use 'sudo apt-get install $name'"; }
 done
